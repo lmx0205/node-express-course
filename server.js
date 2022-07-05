@@ -7,10 +7,11 @@ const mockUserData = [
 ]
 app.get('/users/:id',function (req,res){
     console.log(req.params.id)
+    const user = mockUserData.filter((user)=>user.name === req.params.id)
     res.json({
         success:true,
         message:'got one user',
-        users:req.params.id
+        users:user[0]
     })
 })
 
